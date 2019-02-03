@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Papers</h1>
+
+    <% @papers.each do |paper| %>
+    <%= paper.title %>
+
+ <%= link_to "Show", project_paper_path(paper.project.id, paper.id)%>
+    <% end %>
+
+
+<br>
+
+<%= link_to 'New Paper', new_project_paper_path %>

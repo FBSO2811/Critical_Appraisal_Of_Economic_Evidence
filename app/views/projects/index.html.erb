@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+<div class="container">
+  <h1>Projects</h1>
+  <div class="add-new-project-button">
+    <%= link_to 'New Project', new_project_path, :class => "btn btn-primary" %>
+  </div>
+
+
+  <div class="row">
+    <% @projects.each do |project| %>
+    <div class="col-xs-12 col-sm-4">
+      <%= link_to project_path(project) do %>
+      <div class="card">
+        <div class="card-description">
+         <div class="card-born-country">
+          <div class="card-born">
+            Title of the project
+            <p><%=project.title=%>,</p>
+          </div>
+            Summary of the project
+          <div class="card-country">
+            <p> <%= project.body=%></p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+            <%= link_to "Delete this project", project_path(project), method: :delete,
+          data: { confirm: "Are you sure you want to delete this project?" } %>
+    <% end %>
+  </div>
+  <% end %>
+  <!-- </div> -->
+</div>
+</div>
+

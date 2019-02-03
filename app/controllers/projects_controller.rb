@@ -1,0 +1,55 @@
+class ProjectsController < ApplicationController
+  before_action :set_project, only: [:show, :edit, :update, :destroy]
+
+
+  def index
+    @projects = Project.all
+  end
+
+  # GET /projects/1
+  # GET /projects/1.json
+  def show
+  end
+
+  # GET /projects/new
+  def new
+    @project = Project.new
+  end
+
+  def edit
+  end
+
+  def create
+    @project = Project.new(project_params)
+    @project.save
+    redirect_to projects_path
+
+  end
+
+  def update
+    respond_to do |format|
+      if @project.update(project_params)
+        format.html { redirect_to @project, notice: 'Project was successfully updated.' }
+        format.json { render :show, status: :ok, location: @project }
+      else
+        format.html { render :edit }
+        format.json { render json: @project.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def destroy
+    @project.destroy
+
+    redirect_to projects_path
+  end
+
+  private
+    def set_project
+      @project = Project.find(params[:id])
+    end
+
+    def project_params
+      params.require(:project).permit(:title, :body, :user_id)
+    end
+end
