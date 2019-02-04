@@ -12,7 +12,7 @@
         <%= f.input :body, label: "Write a short summary of the paper you are adding", as: :text, input_html: {rows: 15, cols: 10} %>
         <%= f.file_field :paper_pdf, label: "Upload the paper as PDF" %>
 
-        <%= f.association :project, :as => :hidden, label: "To which project are you adding it?", :input_html => { :value => @project }  %>
+<!--        - <%= f.association :project, :as => :hidden, label: "To which project are you adding it?", :input_html => { :value => @project }  %> -->
       </div>
 <br>
       <div class="form-actions">

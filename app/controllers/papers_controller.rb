@@ -1,5 +1,9 @@
 class PapersController < ApplicationController
-  before_action :set_paper, only: [:show, :edit, :update, :destroy]
+  before_action :set_paper, only: [:show, :edit, :update, :destroy,]
+
+  # def statistics
+  #   @questions = Questions.where("project_id = ? AND paper_id = ?", 2, 1)
+  # end
 
   def index
     @papers = Paper.all

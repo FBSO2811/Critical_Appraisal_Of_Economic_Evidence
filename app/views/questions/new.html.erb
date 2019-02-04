@@ -7,12 +7,15 @@
     <div class="row ">
       <div class="col-sm-6 col-sm-offset-3">
 
-        <%= simple_form_for [@project, @paper, @question], url: project_paper_questions_path do |f| %>
+        <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
 
 
         <%= f.input :question_1, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 1" %>
         <%= f.input :question_2, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 2" %>
         <%= f.input :question_3, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 3" %>
+
+        <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
+
 
         <div class="form-actions">
           <%= f.button :submit, "Send your review" %>

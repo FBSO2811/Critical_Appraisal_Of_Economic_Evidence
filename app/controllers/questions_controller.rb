@@ -1,5 +1,11 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :statistics]
+
+
+  def replies
+    @replies = Question.where("project_id = ? AND paper_id = ?", params[:project_id], params[:paper_id])
+
+  end
 
   def index
     @questions = Question.all
@@ -50,6 +56,7 @@ class QuestionsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
