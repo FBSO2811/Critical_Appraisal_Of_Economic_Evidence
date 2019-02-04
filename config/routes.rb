@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   resources :projects do
     resources :papers do
-      resources :questions
+        get :statistics
+      resources :questions do
+        get :replies
+      end
     end
   end
   devise_for :users
