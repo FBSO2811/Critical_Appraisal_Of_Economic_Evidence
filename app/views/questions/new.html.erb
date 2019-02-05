@@ -10,9 +10,34 @@
         <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
 
 
-        <%= f.input :question_1, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 1" %>
-        <%= f.input :question_2, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 2" %>
-        <%= f.input :question_3, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "Question 3" %>
+        <%= f.input :question_1, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 1" %>
+        <%= f.input :question_2, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 2" %>
+        <%= f.input :question_3, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 3" %>
+        <%= f.input :question_4, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 4" %>
+        <%= f.input :question_5, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 5" %>
+        <%= f.input :question_6, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 6" %>
+        <%= f.input :question_7, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 7" %>
+        <%= f.input :question_8, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 8" %>
+        <%= f.input :question_9, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 9" %>
+        <%= f.input :question_10, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 10" %>
+        <%= f.input :question_11, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 11" %>
+        <%= f.input :question_12, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 12" %>
+        <%= f.input :question_13, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 13" %>
+        <%= f.input :question_14, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 14" %>
+        <%= f.input :question_15, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 15" %>
+        <%= f.input :question_16, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 16" %>
+        <%= f.input :question_17, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 17" %>
+        <%= f.input :question_18, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 18" %>
+        <%= f.input :question_19, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 19" %>
+        <%= f.input :question_20, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 20" %>
+        <%= f.input :question_21, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 21" %>
+        <%= f.input :question_22, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 22" %>
+        <%= f.input :question_23, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 23" %>
+        <%= f.input :question_24, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 24" %>
+        <%= f.input :question_25, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 25" %>
+        <%= f.input :question_26, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 26" %>
+        <%= f.input :question_27, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 27" %>
+        <%= f.input :question_28, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 28" %>
 
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 
