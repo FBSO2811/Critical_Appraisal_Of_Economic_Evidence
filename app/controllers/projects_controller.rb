@@ -148,7 +148,7 @@ class ProjectsController < ApplicationController
 @data = [
       {
         name: "N/A",
-        data: [["Question 1", 2], ["Question 2", 1], ["Question 3", 4]]
+        data: [["Question 1", 20], ["Question 2", 1], ["Question 3", 4]]
       },
       {
         name: "No",
