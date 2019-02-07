@@ -27,7 +27,7 @@
 
   <strong>The PDF of the Paper</strong>
   <br>
-    <%= link_to "Download the PDF", rails_blob_path(@paper.paper_pdf, disposition: :attachment), :class => "btn btn-primary" %>
+    <%= link_to "Download the PDF", rails_blob_path(@paper.paper_pdf, disposition: :attachment), :class => "btn btn-success" %>
     <%= link_to "Open the paper", @paper.paper_pdf, target: :_blank, :class => "btn btn-warning" %>
     <%= link_to "Review the paper", new_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-primary" %>
 

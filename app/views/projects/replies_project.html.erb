@@ -10,9 +10,10 @@ You are inside project:
 
 <div class="container">
 
-<%= bar_chart @data, stacked: "percent" %>
+<%= bar_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 300,} %>
 
 
 
 
 </div>
+

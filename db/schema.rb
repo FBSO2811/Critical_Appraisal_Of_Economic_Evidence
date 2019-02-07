@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_181514) do
+ActiveRecord::Schema.define(version: 2019_02_07_000347) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -89,6 +89,21 @@ ActiveRecord::Schema.define(version: 2019_02_03_181514) do
     t.string "question_28"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "question_content_year"
+    t.string "question_content_income"
+    t.string "question_content_study"
+    t.string "question_content_modelling"
+    t.string "question_content_perspective_a"
+    t.string "question_content_perspective_r"
+    t.string "question_content_sensitivity"
+    t.string "question_content_type"
+    t.string "question_content_outcome"
+    t.string "question_content_intervention"
+    t.string "question_content_data"
+    t.string "question_content_sample"
+    t.string "question_content_description"
+    t.string "question_content_nation"
+    t.string "question_content_cost"
     t.index ["paper_id"], name: "index_questions_on_paper_id"
     t.index ["project_id"], name: "index_questions_on_project_id"
     t.index ["user_id"], name: "index_questions_on_user_id"

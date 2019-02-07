@@ -1,55 +1,103 @@
-<h1>Questions</h1>
+<h1>Questions - Extended & Content </h1>
 
-
-  <div class="container">
-  <h4>You are reviewing the questions for paper paper:</h4>
-
+<div class="container">
+  <div class="extended-and-content">
     <div class="row ">
-      <div class="col-sm-6 col-sm-offset-3">
+      <div class="col-sm-6 col-sm-offset-1">
 
         <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
+        <h1>Extended</h1>
+
+        <h3>Title and abstract</h3>
+        <%= f.input :question_1, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "1. Identify the study as an economic evaluation" %>
+        <%= f.input :question_content_sample, label: "14. Sample Size" %>
+
+        <%= f.input :question_2, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "2. Provide a structured summary of objectives, methods, results and conclusions" %>
+        <h3>Introduction</h3>
+        <%= f.input :question_3, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "3.A Provide an explicit statement of the broader context of the study" %>
+        <%= f.input :question_4, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"],label: "3.B Present the study question and its relevance for health policy or practice decisions. " %>
+        <h3>Methods</h3>
+        <%= f.input :question_5, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"],label: "4. Describe characteristics of the base-case population and subgroups analyzed." %>
+        <%= f.input :question_6, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"],label: "5. State relevant aspects of the systems in which decisions are to be made.
+        " %>
+        <%= f.input :question_7, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"],label: "6. Describe the perspective of the study and relate it to costs evaluated.
+        " %>
+        <%= f.input :question_8,  :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "7. Describe the interventions or strategies being compared and why they've been chosen.
+        " %>
+        <%= f.input :question_9, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"],label: "8. State the time horizon(s) over which costs and consequences are being evaluated, and say why appropriate
+        " %>
+        <%= f.input :question_10, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "9. Report and discuss the choice of discount rate(s) used for costs and outcomes.
+        " %>
+        <%= f.input :question_11, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "10. Describe what outcomes were used as the measure(s) of benefit in the evaluation and their relevance for the type of analysis performed.
+        " %>
+        <%= f.input :question_12, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "11.A Single study–based estimates: Describe fully the design features of the single effectiveness study.
+        " %>
+        <%= f.input :question_13, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "11.B Synthesis-based estimates: Describe fully the methods used for the identification of included studies and synthesis of clinical effectiveness data.
+        " %>
+        <%= f.input :question_14, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "12 If applicable, describe the population and methods used to elicit preferences for outcomes.
+        " %>
+        <%= f.input :question_15, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "13.1 Single study–based economic evaluation: Describe approaches used to estimate resource use associated with the alternative interventions.
+        " %>
+        <%= f.input :question_16, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "13.2 Model-based economic evaluation: Describe approaches and data sources used to estimate resource use associated with model health states.
+        " %>
+        <%= f.input :question_17, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "14. Report the dates of the estimated resource quantities and unit costs; cescribe methods for adjusting estimated unit costs and converting costs.
+        " %>
+        <%= f.input :question_18, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "15. Describe and give reasons for the specific type of decision-analytic model used. Providing a figure to show model structure is strongly recommended.
+        " %>
+        <%= f.input :question_19, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "16. Describe all structural or other assumptions underpinning the decision-analytic model.
+        " %>
+        <%= f.input :question_20, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "17. Describe all analytic methods supporting the evaluation.
+        " %>
+        <h3>Results</h3>
+        <%= f.input :question_21, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "18. Report the values, ranges, references, and if used, probability distributions for all parameters.
+        " %>
+        <%= f.input :question_22, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "19. For each intervention, report mean values for the main categories of estimated costs and outcomes of interest, as well as mean differences between the comparator groups.
+        " %>
+        <%= f.input :question_23, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "20.A Single study–based economic evaluation: Describe the effects of sampling uncertainty, together with the impact of methodological assumptions.
+        " %>
+        <%= f.input :question_24, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "20.B Model-based economic evaluation: Describe the effects on the results of uncertainty for all input parameters.
+        " %>
+        <%= f.input :question_25, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "21. If applicable, report differences in costs, outcomes, or cost- effectiveness that can be explained by variations between subgroups of patients.
+        " %>
+        <h3>Discussion</h3>
+        <%= f.input :question_26, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "22. Summarize key study findings and describe how they support the conclusions reached.
+        " %>
+        <h3>Other</h3>
+        <%= f.input :question_27, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "23. Describe how the study was funded and the role of the funder in the identification, design, conduct, and reporting of the analysis.
+        " %>
+        <%= f.input :question_28, :collection =>["N/A", "No - 0", "Partially - 0.5", "Yes - 1"], label: "24. Describe any potential for conflict of interest among study contributors in accordance with journal policy.
+        " %>
 
 
-        <%= f.input :question_1, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 1" %>
-        <%= f.input :question_2, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 2" %>
-        <%= f.input :question_3, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 3" %>
-        <%= f.input :question_4, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 4" %>
-        <%= f.input :question_5, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 5" %>
-        <%= f.input :question_6, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 6" %>
-        <%= f.input :question_7, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 7" %>
-        <%= f.input :question_8, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 8" %>
-        <%= f.input :question_9, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 9" %>
-        <%= f.input :question_10, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 10" %>
-        <%= f.input :question_11, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 11" %>
-        <%= f.input :question_12, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 12" %>
-        <%= f.input :question_13, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 13" %>
-        <%= f.input :question_14, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 14" %>
-        <%= f.input :question_15, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 15" %>
-        <%= f.input :question_16, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 16" %>
-        <%= f.input :question_17, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 17" %>
-        <%= f.input :question_18, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 18" %>
-        <%= f.input :question_19, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 19" %>
-        <%= f.input :question_20, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 20" %>
-        <%= f.input :question_21, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 21" %>
-        <%= f.input :question_22, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 22" %>
-        <%= f.input :question_23, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 23" %>
-        <%= f.input :question_24, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 24" %>
-        <%= f.input :question_25, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 25" %>
-        <%= f.input :question_26, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 26" %>
-        <%= f.input :question_27, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 27" %>
-        <%= f.input :question_28, :collection =>[["N/A", -1], ["No - 0", 0], ["Partially - 0.5", 0.5], ["Yes - 1", 1]], label: "Question 28" %>
+        <h1>Content</h1>
+        <%= f.input :question_content_year, label: "1. Year"%>
 
+        <%= f.input :question_content_nation, label: "2. Country"%>
+
+        <%= f.input :question_content_income, :collection =>[["Low income", -1], ["Middle income", 0], ["High income", 0.5]], label: "3. Income level" %>
+        <%= f.input :question_content_type, :collection =>[["CUA", 0], ["CEA", 1], ["CBA", 2], ["CCA", 3], ["CMA", 4]], label: "4. Type of economic evaluation" %>
+        <%= f.input :question_content_study, :collection =>[["RCT", 0], ["Quasi-experimental", 1], ["Modelling", 2], ["Observational", 3], ["Mixed RCT and Modelling", 4]], label: "5. Study Design " %>
+        <%= f.input :question_content_modelling, :collection =>[["Decison Tree", 0], ["Markov model", 1], ["Patient level simulation/microsimulation", 2], ["Dynamic models", 3], ["Other", 4]], label: "6. Type of modeling, if modeling design " %>
+        <%= f.input :question_content_perspective_a, :collection =>[["Social", 0], ["Provider/Health care system", 1], ["Program", 2], ["Patient", 3], ["Payer/Third party", 4], ["Mixed", 5]], label: "7. Perspective (as stated by authors)" %>
+        <%= f.input :question_content_perspective_r, :collection =>[["Social", 0], ["Provider/Health care system", 1], ["Program", 2], ["Patient", 3], ["Payer/Third party", 4], ["Mixed", 5]], label: "8. Perspective (evaluated by reviewer)" %>
+        <%= f.input :question_content_sensitivity, :collection =>[["One way/Univariate", 0], ["Multy-way/Multivariate", 1], ["Probabilistic analysis", 2], ["Not performaed/specified", 3], ["CMA", 4]], label: "9. Type of sensitivity analysis" %>
+        <%= f.input :question_content_type, :collection =>[["<= 1", 0], ["1-10 years", 1], ["Over 10 years", 2], ["Not clearly stated", 3]], label: "10. Time horizon" %>
+        <%= f.input :question_content_outcome, :collection =>[["QALY/DALY", 0], ["Natural units", 1], ["Process outcomes", 2], ["Monetary", 3]], label: "11. Outcome Measure" %>
+        <%= f.input :question_content_cost, :collection =>[["Direct medical costs", 0], ["Direct non-medical costs", 1], ["Indirect costs", 2], ["Intangible costs", 3]], label: "12. Costs included" %>
+        <%= f.input :question_content_intervention, label: "13. Decription of Intervention/Comparison" %>
+        <%= f.input :question_content_data, :collection =>[["Primary", 0], ["Secondary", 1], ["Mixed", 2], ["Monetary", 3]], label: "14. Type and source of data used" %>
+        <%= f.input :question_content_sample, label: "15. Sample Size" %>
+        <%= f.input :question_content_description, label: "16. Description of analysis outcomes" %>
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 
 
         <div class="form-actions">
           <%= f.button :submit, "Send your review" %>
         </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-
-
+</div>
 
 
