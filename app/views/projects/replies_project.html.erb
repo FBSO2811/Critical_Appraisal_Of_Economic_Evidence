@@ -1,19 +1,18 @@
+
 FUNZIONA PROJECT
 
 You are inside project:
 <%= @project.title %> with id <%= @project.id %>
 
 <head>
-<%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
-<%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_include_tag 'application' %>
 </head>
 
-<div class="container">
 
-<%= bar_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 300,} %>
-
+  <%= column_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 800,} %>
 
 
 
-</div>
+
 

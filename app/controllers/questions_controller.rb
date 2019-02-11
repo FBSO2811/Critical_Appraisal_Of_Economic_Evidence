@@ -1,5 +1,167 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy, :new_condesend]
+  before_action :set_question, only: [:show, :edit, :update, :destroy]
+
+  def replies
+    @project = Project.find(params[:project_id])
+    @paper = Paper.find(params[:paper_id])
+
+    # INCOME
+    @replies_paper_income_low = Question.where("project_id = ? AND paper_id = ? AND question_content_income = ?", params[:project_id], params[:paper_id], "-1").length
+    @replies_paper_income_middle = Question.where("project_id = ? AND paper_id = ? AND question_content_income = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_income_high = Question.where("project_id = ? AND paper_id = ? AND question_content_income = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_income_total = @replies_paper_income_low + @replies_paper_income_middle + @replies_paper_income_high
+
+    @replies_paper_income_low_p = (@replies_paper_income_low/@replies_paper_income_total)*100
+    @replies_paper_income_middle_p =(@replies_paper_income_middle/@replies_paper_income_total)*100
+    @replies_paper_income_high_p =(@replies_paper_income_high/@replies_paper_income_total)*100
+
+
+    # TYPE
+    @replies_paper_type_cua = Question.where("project_id = ? AND paper_id = ? AND question_content_type = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_type_cea = Question.where("project_id = ? AND paper_id = ? AND question_content_type = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_type_cba = Question.where("project_id = ? AND paper_id = ? AND question_content_type = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_type_cca = Question.where("project_id = ? AND paper_id = ? AND question_content_type = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_type_cma = Question.where("project_id = ? AND paper_id = ? AND question_content_type = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_type_total = @replies_paper_type_cua + @replies_paper_type_cea + @replies_paper_type_cba + @replies_paper_type_cca + @replies_paper_type_cma
+
+    @replies_paper_type_cua_p = (@replies_paper_type_cua/@replies_paper_type_total)*100
+    @replies_paper_type_cea_p = (@replies_paper_type_cea/@replies_paper_type_total)*100
+    @replies_paper_type_cba_p = (@replies_paper_type_cba/@replies_paper_type_total)*100
+    @replies_paper_type_cca_p = (@replies_paper_type_cca/@replies_paper_type_total)*100
+    @replies_paper_type_cma_p = (@replies_paper_type_cma/@replies_paper_type_total)*100
+
+
+
+    # STUDY
+    @replies_paper_study_rct = Question.where("project_id = ? AND paper_id = ? AND question_content_study = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_study_quasi = Question.where("project_id = ? AND paper_id = ? AND question_content_study = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_study_modelling = Question.where("project_id = ? AND paper_id = ? AND question_content_study = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_study_observational = Question.where("project_id = ? AND paper_id = ? AND question_content_study = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_study_mixed = Question.where("project_id = ? AND paper_id = ? AND question_content_study = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_study_total = @replies_paper_study_rct+@replies_paper_study_quasi+@replies_paper_study_modelling+@replies_paper_study_observational+@replies_paper_study_mixed
+
+    @replies_paper_study_rct_p = (@replies_paper_study_rct/@replies_paper_study_total)*100
+    @replies_paper_study_quasi_p = (@replies_paper_study_quasi/@replies_paper_study_total)*100
+    @replies_paper_study_modelling_p = (@replies_paper_study_modelling/@replies_paper_study_total)*100
+    @replies_paper_study_observational_p = (@replies_paper_study_observational/@replies_paper_study_total)*100
+    @replies_paper_study_mixed_p = (@replies_paper_study_mixed/@replies_paper_study_total)*100
+
+
+    # MODELLING
+    @replies_paper_modelling_tree = Question.where("project_id = ? AND paper_id = ? AND question_content_modelling = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_modelling_markov = Question.where("project_id = ? AND paper_id = ? AND question_content_modelling = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_modelling_patient = Question.where("project_id = ? AND paper_id = ? AND question_content_modelling = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_modelling_dynamic = Question.where("project_id = ? AND paper_id = ? AND question_content_modelling = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_modelling_other = Question.where("project_id = ? AND paper_id = ? AND question_content_modelling = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_modelling_total = @replies_paper_modelling_tree+@replies_paper_modelling_markov+@replies_paper_modelling_patient+@replies_paper_modelling_dynamic+@replies_paper_modelling_other
+
+    @replies_paper_modelling_tree_p = (@replies_paper_modelling_tree/@replies_paper_modelling_total)*100
+    @replies_paper_modelling_markov_p = (@replies_paper_modelling_markov/@replies_paper_modelling_total)*100
+    @replies_paper_modelling_patient_p = (@replies_paper_modelling_patient/@replies_paper_modelling_total)*100
+    @replies_paper_modelling_dynamic_p = (@replies_paper_modelling_dynamic/@replies_paper_modelling_total)*100
+    @replies_paper_modelling_other_p = (@replies_paper_modelling_other/@replies_paper_modelling_total)*100
+
+    # PERSPECTIVE A
+    @replies_paper_perspective_a_social = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_perspective_a_provider = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_perspective_a_program = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_perspective_a_patient = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_perspective_a_payer = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_perspective_a_mixed = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_a = ?", params[:project_id], params[:paper_id], "5").length
+    @replies_paper_perspective_a_total = @replies_paper_perspective_a_social+@replies_paper_perspective_a_provider+@replies_paper_perspective_a_program+@replies_paper_perspective_a_patient+@replies_paper_perspective_a_payer+@replies_paper_perspective_a_mixed
+
+    @replies_paper_perspective_a_social_p = (@replies_paper_perspective_a_social/@replies_paper_perspective_a_total)*100
+    @replies_paper_perspective_a_provider= (@replies_paper_perspective_a_provider/@replies_paper_perspective_a_total)*100
+    @replies_paper_perspective_a_provider = (@replies_paper_perspective_a_provider/@replies_paper_perspective_a_total)*100
+    @replies_paper_perspective_a_patient= (@replies_paper_perspective_a_patient/@replies_paper_perspective_a_total)*100
+    @replies_paper_perspective_a_payer= (@replies_paper_perspective_a_payer/@replies_paper_perspective_a_total)*100
+    @replies_paper_perspective_a_mixed= (@replies_paper_perspective_a_mixed/@replies_paper_perspective_a_total)*100
+
+
+    # PERSPECTIVE B
+    @replies_paper_perspective_r_social = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_perspective_r_provider = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_perspective_r_program = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_perspective_r_patient = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_perspective_r_payer = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_perspective_r_mixed = Question.where("project_id = ? AND paper_id = ? AND question_content_perspective_r = ?", params[:project_id], params[:paper_id], "5").length
+    @replies_paper_perspective_r_total = @replies_paper_perspective_r_social+@replies_paper_perspective_r_provider+@replies_paper_perspective_r_program+@replies_paper_perspective_r_patient+@replies_paper_perspective_r_payer+@replies_paper_perspective_r_mixed
+
+    @replies_paper_perspective_r_social_p = (@replies_paper_perspective_r_social/@replies_paper_perspective_r_total)*100
+    @replies_paper_perspective_r_provider= (@replies_paper_perspective_r_provider/@replies_paper_perspective_r_total)*100
+    @replies_paper_perspective_r_provider = (@replies_paper_perspective_r_provider/@replies_paper_perspective_r_total)*100
+    @replies_paper_perspective_r_patient= (@replies_paper_perspective_r_patient/@replies_paper_perspective_r_total)*100
+    @replies_paper_perspective_r_payer= (@replies_paper_perspective_r_payer/@replies_paper_perspective_r_total)*100
+    @replies_paper_perspective_r_mixed= (@replies_paper_perspective_r_mixed/@replies_paper_perspective_r_total)*100
+
+    # SENSITIVITY
+    @replies_paper_sensitibity_one = Question.where("project_id = ? AND paper_id = ? AND question_content_sensitivity = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_sensitibity_multi = Question.where("project_id = ? AND paper_id = ? AND question_content_sensitivity = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_sensitibity_probabilistic = Question.where("project_id = ? AND paper_id = ? AND question_content_sensitivity = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_sensitibity_not = Question.where("project_id = ? AND paper_id = ? AND question_content_sensitivity = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_sensitibity_cma = Question.where("project_id = ? AND paper_id = ? AND question_content_sensitivity = ?", params[:project_id], params[:paper_id], "4").length
+    @replies_paper_sensitibity_total = @replies_paper_sensitibity_one+@replies_paper_sensitibity_multi+@replies_paper_sensitibity_probabilistic+@replies_paper_sensitibity_not+@replies_paper_sensitibity_cma
+
+    @replies_paper_sensitibity_one_p = (@replies_paper_sensitibity_one/@replies_paper_sensitibity_total)*100
+    @replies_paper_sensitibity_multi_p = (@replies_paper_sensitibity_multi/@replies_paper_sensitibity_total)*100
+    @replies_paper_sensitibity_probabilistic_p = (@replies_paper_sensitibity_probabilistic/@replies_paper_sensitibity_total)*100
+    @replies_paper_sensitibity_not_p = (@replies_paper_sensitibity_not/@replies_paper_sensitibity_total)*100
+    @replies_paper_sensitibity_cma_p  = (@replies_paper_sensitibity_cma /@replies_paper_sensitibity_total)*100
+
+    # DATE/TIME
+    @replies_paper_date_one = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_date_ten = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_date_above = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_date_not = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_date_total = @replies_paper_date_one+@replies_paper_date_ten+@replies_paper_date_above+@replies_paper_date_not
+
+    @replies_paper_date_one_p = (@replies_paper_date_one/@replies_paper_date_total)*100
+    @replies_paper_date_ten_p = (@replies_paper_date_ten/@replies_paper_date_total)*100
+    @replies_paper_date_above_p = (@replies_paper_date_above/@replies_paper_date_total)*100
+    @replies_paper_date_not_p = (@replies_paper_date_not/@replies_paper_date_total)*100
+
+    # OUTCOME
+    @replies_paper_outcome_qaly = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_outcome_natural = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_outcome_process = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_outcome_monetary = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_outcome_total = @replies_paper_outcome_qaly +@replies_paper_outcome_natural+@replies_paper_outcome_process+@replies_paper_outcome_monetary
+
+    @replies_paper_outcome_qaly_p = (@replies_paper_outcome_qaly/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_natural_p = (@replies_paper_outcome_natural/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_process_p = (@replies_paper_outcome_process/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_monetary_p = (@replies_paper_outcome_monetary/@replies_paper_outcome_total)*100
+
+
+    # COST
+    @replies_paper_outcome_medical = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_outcome_non = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_outcome_indirect = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_outcome_intangible = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_outcome_total = @replies_paper_outcome_medical + @replies_paper_outcome_non + @replies_paper_outcome_indirect + @replies_paper_outcome_intangible
+
+    @replies_paper_outcome_medical_p = (@replies_paper_outcome_medical/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_non_p = (@replies_paper_outcome_non/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_indirect_p = (@replies_paper_outcome_indirect/@replies_paper_outcome_total)*100
+    @replies_paper_outcome_intangible_p = (@replies_paper_outcome_intangible/@replies_paper_outcome_total)*100
+
+    #DATA
+    @replies_paper_data_primary = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_data_secondary = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_data_mixed = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_data_monetary = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_data_total = @replies_paper_data_primary +@replies_paper_data_secondary+@replies_paper_data_mixed+@replies_paper_data_monetary
+
+    @replies_paper_data_primary_p = (@replies_paper_data_primary/@replies_paper_data_total) *100
+    @replies_paper_data_secondary_p = (@replies_paper_data_secondary/@replies_paper_data_total) *100
+    @replies_paper_data_mixed_p = (@replies_paper_data_mixed/@replies_paper_data_total) *100
+    @replies_paper_data_monetary_p = (@replies_paper_data_monetary/@replies_paper_data_total) *100
+
+
+
+
+
+  end
 
   def index
     @questions = Question.all
@@ -10,7 +172,7 @@ class QuestionsController < ApplicationController
 
   def new
     @project = Project.find(params[:project_id])
-    # @paper = Paper.find(params[:paper_id])
+    @paper = Paper.find(params[:paper_id])
     @question = Question.new
   end
 
@@ -66,4 +228,4 @@ class QuestionsController < ApplicationController
         :question_content_study, :question_content_modelling, :question_content_perspective_a, :question_content_perspective_r, :question_content_sensitivity, :question_content_type, :question_content_outcome, :question_content_intervention,
         :question_content_data, :question_content_sample, :question_content_description, :question_content_nation, :question_content_cost)
     end
-end
+  end
