@@ -10,8 +10,8 @@ You are inside project:
 </head>
 
 
-  <%= column_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 800,} %>
 
+ <%= column_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 800,}, download: {filename: "boom"}%>
 
 
 

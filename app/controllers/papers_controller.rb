@@ -21,9 +21,12 @@ class PapersController < ApplicationController
   def create
     @paper = Paper.new(paper_params)
     @paper.project = Project.find(params[:project_id])
-    @paper.save
-
-    redirect_to project_path(@paper.project.id)
+    if @paper.save
+      redirect_to project_path(@paper.project.id)
+    else
+      flash[:alert] = "You have to fill the title and body and attach the PDF"
+      render :new
+    end
   end
 
   def update

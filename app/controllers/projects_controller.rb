@@ -167,8 +167,18 @@ class ProjectsController < ApplicationController
 
   end
 
+
   def index
-    @projects = Project.all
+    if params[:search]
+      @projects = Project.search(params[:search]).order("RANDOM()")
+      if @projects.length != 0
+        @projects = Project.search(params[:search]).order("RANDOM()")
+      else
+        flash[:alert] = "There are no project with that title, search again or click the top left icon to see available projects"
+      end
+    else
+      @projects = Project.all
+    end
   end
 
   # GET /projects/1
@@ -186,9 +196,14 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.save
-    redirect_to projects_path
-
+    # @project.save
+    # redirect_to projects_path
+    if @project.save
+      redirect_to projects_path
+    else
+      flash[:alert] = "You have to fill the title and body"
+      render :new
+    end
   end
 
   def update
