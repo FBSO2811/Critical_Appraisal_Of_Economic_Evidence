@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+<div class="container">
+
+<h1>Welcome to Charta</h1>
+
+
+<%= link_to "Explore the projects", projects_path, :class => "btn btn-primary"%>
+<% if  current_user.admin%>
+  <%= link_to "Manage website (add user, etc.)", rails_admin_path, :class => "btn btn-danger"%>
+<% end %>
+
+</div>
