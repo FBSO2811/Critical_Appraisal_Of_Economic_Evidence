@@ -1,6 +1,12 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
+  def flag
+    @flag = Question.where("project_id = ? AND paper_id = ? AND question_content_income = ?", params[:project_id], params[:paper_id], "-1").length
+
+  end
+
+
   def replies
     @project = Project.find(params[:project_id])
     @paper = Paper.find(params[:paper_id])
@@ -174,6 +180,7 @@ class QuestionsController < ApplicationController
     @project = Project.find(params[:project_id])
     @paper = Paper.find(params[:paper_id])
     @question = Question.new
+    flag()
   end
 
 
