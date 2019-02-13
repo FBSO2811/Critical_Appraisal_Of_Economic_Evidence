@@ -1,5 +1,3 @@
-<% if @flag == 0 %>
-
 <h1>Questions - Extended & Content </h1>
 
 <div class="container">
@@ -92,6 +90,9 @@
         <%= f.input :question_content_sample, label: "15. Sample Size" %>
 
         <%= f.input :question_content_description, label: "15. Description of analysis outcomes" %>
+
+
+
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 
 
@@ -104,11 +105,6 @@
   </div>
 </div>
 
-<% else %>
 
-You already answer this paper
-<%= link_to 'Go back to projects', projects_path %>
-
-<% end %>
 
 
