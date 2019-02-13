@@ -5,8 +5,15 @@
 
 
 <%= link_to "Explore the projects", projects_path, :class => "btn btn-primary"%>
-<% if  current_user.admin%>
-  <%= link_to "Manage website (add user, etc.)", rails_admin_path, :class => "btn btn-danger"%>
+
+<% if user_signed_in? %>
+
+<% if current_user.admin %>
+
+<%= link_to "Manage the website (example: add users)", admin_path, :class => "btn btn-primary"%>
+
+<% end %>
+
 <% end %>
 
 </div>

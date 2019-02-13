@@ -1,9 +1,14 @@
+<% if @flag == 0 %>
+
 <h1>Questions - Extended & Content </h1>
 
 <div class="container">
   <div class="extended-and-content">
     <div class="row ">
-      <div class="col-sm-6 col-sm-offset-1">
+      <div class="col-sm-6 col-sm-offset-3">
+
+
+
 
         <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
         <h1>Extended</h1>
@@ -98,5 +103,12 @@
     </div>
   </div>
 </div>
+
+<% else %>
+
+You already answer this paper
+<%= link_to 'Go back to projects', projects_path %>
+
+<% end %>
 
 
