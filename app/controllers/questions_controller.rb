@@ -2,8 +2,6 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   def flag
-    @flag = Question.where("project_id = ? AND paper_id = ? AND question_content_income = ?", params[:project_id], params[:paper_id], "-1").length
-
   end
 
 
@@ -140,16 +138,16 @@ class QuestionsController < ApplicationController
 
 
     # COST
-    @replies_paper_outcome_medical = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "0").length
-    @replies_paper_outcome_non = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "1").length
-    @replies_paper_outcome_indirect = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "2").length
-    @replies_paper_outcome_intangible = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "3").length
-    @replies_paper_outcome_total = @replies_paper_outcome_medical + @replies_paper_outcome_non + @replies_paper_outcome_indirect + @replies_paper_outcome_intangible
+    @replies_paper_cost_medical = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "0").length
+    @replies_paper_cost_non = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "1").length
+    @replies_paper_cost_indirect = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "2").length
+    @replies_paper_cost_intangible = Question.where("project_id = ? AND paper_id = ? AND question_content_outcome = ?", params[:project_id], params[:paper_id], "3").length
+    @replies_paper_cost_total = @replies_paper_cost_medical + @replies_paper_cost_non + @replies_paper_cost_indirect + @replies_paper_cost_intangible
 
-    @replies_paper_outcome_medical_p = (@replies_paper_outcome_medical/@replies_paper_outcome_total)*100
-    @replies_paper_outcome_non_p = (@replies_paper_outcome_non/@replies_paper_outcome_total)*100
-    @replies_paper_outcome_indirect_p = (@replies_paper_outcome_indirect/@replies_paper_outcome_total)*100
-    @replies_paper_outcome_intangible_p = (@replies_paper_outcome_intangible/@replies_paper_outcome_total)*100
+    @replies_paper_cost_medical_p = (@replies_paper_cost_medical/@replies_paper_cost_total)*100
+    @replies_paper_cost_non_p = (@replies_paper_cost_non/@replies_paper_cost_total)*100
+    @replies_paper_cost_indirect_p = (@replies_paper_cost_indirect/@replies_paper_cost_total)*100
+    @replies_paper_cost_intangible_p = (@replies_paper_cost_intangible/@replies_paper_cost_total)*100
 
     #DATA
     @replies_paper_data_primary = Question.where("project_id = ? AND paper_id = ? AND question_content_data = ?", params[:project_id], params[:paper_id], "0").length
@@ -164,6 +162,7 @@ class QuestionsController < ApplicationController
     @replies_paper_data_monetary_p = (@replies_paper_data_monetary/@replies_paper_data_total) *100
 
 
+    @flag = @replies_paper_income_total+@replies_paper_type_total+@replies_paper_study_total+@replies_paper_modelling_total+@replies_paper_perspective_a_total+@replies_paper_perspective_r_total+@replies_paper_sensitibity_total+@replies_paper_date_total+@replies_paper_outcome_total+@replies_paper_cost_total+@replies_paper_data_total
 
 
 
@@ -180,7 +179,6 @@ class QuestionsController < ApplicationController
     @project = Project.find(params[:project_id])
     @paper = Paper.find(params[:paper_id])
     @question = Question.new
-    flag()
   end
 
 
@@ -198,6 +196,8 @@ class QuestionsController < ApplicationController
       flash[:alert] = "You have to answer all questions"
       render :new
     end
+
+
   end
 
   def update

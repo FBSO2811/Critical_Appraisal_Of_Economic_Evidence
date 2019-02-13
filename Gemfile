@@ -12,6 +12,7 @@ gem "mini_magick"
 gem "chartkick"
 gem 'country-select'
 gem 'rails_admin', '~> 1.3'
+gem 'activestorage-validator'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass', '~> 3.3'
