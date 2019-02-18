@@ -14,6 +14,10 @@
   inside the project
   <%= @paper.project.title %> with id <%= @paper.project.id %>
 
+  <br>
+<%= link_to "Export paper statistics as spreadsheet", paper_download_project_paper_questions_path(format: "xlsx"), :class => "btn btn-primary" %>
+  <br>
+
 
   <h1>Income level</h1>
   <table style="width:100%">
