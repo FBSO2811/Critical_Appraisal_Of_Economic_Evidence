@@ -1,15 +1,17 @@
 
-FUNZIONA PROJECT
-
-You are inside project:
-<%= @project.title %> with id <%= @project.id %>
-
 <head>
   <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
   <%= javascript_include_tag 'application' %>
 </head>
 
-
+<br>
+<div class="container">
+  You are inside project:
+  <%= @project.title %> with id <%= @project.id %>
+  <br>
+  <%= link_to "Export project statistics as spreadsheet", project_download_project_path(format: "xlsx"), :class => "btn btn-primary" %>
+</div>
+<br>
 
  <%= column_chart @data, adapter: 'google', library: { isStacked: 'percent',  height: 800,}, download: {filename: "boom"}%>
 
