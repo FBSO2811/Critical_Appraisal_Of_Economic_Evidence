@@ -165,6 +165,14 @@ class QuestionsController < ApplicationController
     @flag = @replies_paper_income_total+@replies_paper_type_total+@replies_paper_study_total+@replies_paper_modelling_total+@replies_paper_perspective_a_total+@replies_paper_perspective_r_total+@replies_paper_sensitibity_total+@replies_paper_date_total+@replies_paper_outcome_total+@replies_paper_cost_total+@replies_paper_data_total
   end
 
+  def paper_download
+    @replies_paper = Question.where("project_id = ? AND paper_id = ?", params[:project_id], params[:paper_id])
+    respond_to do |format|
+       format.xlsx {render xlsx: 'paper_download', filename: "paper_excel.xlsx"}
+    end
+  end
+
+
   def index
     @questions = Question.all
   end

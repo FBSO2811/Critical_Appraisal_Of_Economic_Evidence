@@ -1,0 +1,92 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Paper excel") do |sheet|
+  sheet.add_row %w(
+  1.-Identify-the-study-as-an-economic-evaluation
+  2.-Provide-a-structured-summary-of-objectives,-methods,-results-andconclusions
+  3.A-Provide-an-explicit-statement-of-the-broader-context-of-the-study
+  3.B-Present-the-study-question-and-its-relevance-for-health-policy-or-practice-decisions
+  4.-Describe-characteristics-of-the-base-case-population-and-subgroups-analyzed
+  5.-State-relevant-aspects-of-the-systems-in-which-decisions-are-to-be-made
+  6.-Describe-the-perspective-of-the-study-and-relate-it-to-costs-evaluated
+  7.-Describe-the-interventions-or-strategies-being-compared-and-why-they've-been-chosen
+  8.-State-the-time-horizon(s)-over-which-costs-and-consequences-are-being-evaluated,-and-say-why-appropriate
+  9.-Report-and-discuss-the-choice-of-discount-rate(s)-used-for-costs-and-outcomes
+  10.-Describe-what-outcomes-were-used-as-the-measure(s)-of-benefit-in-the-evaluation-and-their-relevance-for-the-type-of-analysis-performed
+  11.A-Single-study–based-estimates:-Describe-fully-the-design-features-of-the-single-effectiveness-study
+  11.B-Synthesis-based-estimates:-Describe-fully-the-methods-used-for-the-identification-of-included-studies-and-synthesis-of-clinical-effectiveness-data
+  12-If-applicable,-describe-the-population-and-methods-used-to-elicit-preferences-for-outcomes
+  13.A-Single-study–based-economic-evaluation:-Describe-approaches-used-to-estimate-resource-use-associated-with-the-alternative-interventions
+  13.B-Model-based-economic-evaluation:-Describe-approaches-and-data-sources-used-to-estimate-resource-use-associated-with-model-health-states
+  14.-Report-the-dates-of-the-estimated-resource-quantities-and-unit-costs;-cescribe-methods-for-adjusting-estimated-unit-costs-and-converting-costs
+  15.-Describe-and-give-reasons-for-the-specific-type-of-decision-analytic-model-used.-Providing-a-figure-to-show-model-structure-is-strongly-recommended
+  16.-Describe-all-structural-or-other-assumptions-underpinning-the-decision-analytic-model
+  17.-Describe-all-analytic-methods-supporting-the-evaluation
+  18.-Report-the-values,-ranges,-references,-and-if-used,-probability-distributions-for-all-parameters
+  19.-For-each-intervention,-report-mean-values-for-the-main-categories-of-estimated-costs-and-outcomes-of-interest,-as-well-as-mean-differences-between-the-comparator-groups
+  20.A-Single-study–based-economic-evaluation:-Describe-the-effects-of-sampling-uncertainty,-together-with-the-impact-of-methodological-assumptions
+  20.B-Model-based-economic-evaluation:-Describe-the-effects-on-the-results-of-uncertainty-for-all-input-parameters
+  21.-If-applicable,-report-differences-in-costs,-outcomes,-or-cost-effectiveness-that-can-be-explained-by-variations-between-subgroups-of-patients
+  22.-Summarize-key-study-findings-and-describe-how-they-support-the-conclusions-reached
+  23.-Describe-how-the-study-was-funded-and-the-role-of-the-funder-in-the-identification,-design,-conduct,-and-reporting-of-the-analysis
+  24.-Describe-any-potential-for-conflict-of-interest-among-study-contributors-in-accordance-with-journal-policy
+  A-Income-level
+  B-Type-of-economic-evaluation
+  C-Study-Design
+  D-Type-of-modeling,-if-modeling-design-
+  E-Perspective-(as-stated-by-authors)
+  F-Perspective-(evaluated-by-reviewer)
+  G-Type-of-sensitivity-analysis
+  H-Time-horizon
+  I-Outcome-Measure
+  L-Costs-included
+  M-Type-and-source-of-data used
+  )
+
+  @replies_paper.each do |reply|
+    sheet.add_row [
+    reply.question_1,
+    reply.question_2,
+    reply.question_3,
+    reply.question_4,
+    reply.question_5,
+    reply.question_6,
+    reply.question_7,
+    reply.question_8,
+    reply.question_9,
+    reply.question_10,
+    reply.question_11,
+    reply.question_12,
+    reply.question_13,
+    reply.question_14,
+    reply.question_15,
+    reply.question_16,
+    reply.question_17,
+    reply.question_18,
+    reply.question_19,
+    reply.question_20,
+    reply.question_21,
+    reply.question_22,
+    reply.question_23,
+    reply.question_24,
+    reply.question_25,
+    reply.question_26,
+    reply.question_27,
+    reply.question_28,
+    reply.question_content_income,
+    reply.question_content_type,
+    reply.question_content_study,
+    reply.question_content_modelling,
+    reply.question_content_perspective_a,
+    reply.question_content_perspective_r,
+    reply.question_content_sensitivity,
+    reply.question_content_data,
+    reply.question_content_outcome,
+    reply.question_content_cost,
+  reply.question_content_data,
+    ]
+  end
+end
+
+
+

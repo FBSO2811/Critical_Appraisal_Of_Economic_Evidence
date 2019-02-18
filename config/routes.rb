@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :questions do
         collection do
           get 'replies'
+          get "paper_download"
         end
       end
     end
