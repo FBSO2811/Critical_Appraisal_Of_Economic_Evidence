@@ -10,7 +10,7 @@
   <h1>This paper is inside the project:</h1>
   <%= @paper.project.title %>
 
-  <h1>This paper is created by user: the project:</h1>
+  <h1>This paper is created by user:</h1>
   <%= @paper.project.user.email %>
 
   <h1>You are reading the paper: </h1>
@@ -34,10 +34,12 @@
     <% if current_user.admin == false %>
 
     <%= link_to "Review the paper", new_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-primary" %>
-    <% end %>
+<!--     <%= link_to "Modify you review", edit_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-primary" %>
+ -->    <% end %>
 
-
+    <% if current_user.admin %>
     <%= link_to "Check paper statistics", replies_project_paper_questions_path(@paper.project.id, @paper.id), :class => "btn btn-danger" %>
+    <% end %>
 
   <br>
 <%= link_to image_tag(@paper.paper_pdf.preview(resize: "1000x1000")), @paper.paper_pdf, target: :_blank %>

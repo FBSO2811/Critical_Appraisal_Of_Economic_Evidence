@@ -67,6 +67,11 @@ class ProjectsController < ApplicationController
     @replies_project_MAYBE_question_12 = Question.where("project_id = ? AND question_13 = ?", params[:id], "0.5").length
     @replies_project_YES_question_12 = Question.where("project_id = ? AND question_13 = ?", params[:id], "1").length
 
+    @replies_project_NA_question_13 = Question.where("project_id = ? AND question_13 = ?", params[:id], "-1").length
+    @replies_project_NO_question_13 = Question.where("project_id = ? AND question_13 = ?", params[:id], "0").length
+    @replies_project_MAYBE_question_13 = Question.where("project_id = ? AND question_13 = ?", params[:id], "0.5").length
+    @replies_project_YES_question_13 = Question.where("project_id = ? AND question_13 = ?", params[:id], "1").length
+
     @replies_project_NA_question_14 = Question.where("project_id = ? AND question_14 = ?", params[:id], "-1").length
     @replies_project_NO_question_14 = Question.where("project_id = ? AND question_14 = ?", params[:id], "0").length
     @replies_project_MAYBE_question_14 = Question.where("project_id = ? AND question_14 = ?", params[:id], "0.5").length
