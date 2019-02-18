@@ -163,9 +163,6 @@ class QuestionsController < ApplicationController
 
 
     @flag = @replies_paper_income_total+@replies_paper_type_total+@replies_paper_study_total+@replies_paper_modelling_total+@replies_paper_perspective_a_total+@replies_paper_perspective_r_total+@replies_paper_sensitibity_total+@replies_paper_date_total+@replies_paper_outcome_total+@replies_paper_cost_total+@replies_paper_data_total
-
-
-
   end
 
   def index
