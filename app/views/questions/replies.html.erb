@@ -5,15 +5,9 @@
 </head>
 
 <div class="container">
-  Replies
 
-  You are viewing the stastitics for the paper
-  <br>
-  <%= @paper.title %> with id <%= @paper.id %>
-  <br>
-  inside the project
-  <%= @paper.project.title %> with id <%= @paper.project.id %>
-
+  <h3>Statistics </h3>
+  <h5>  Title of the paper: <%= @paper.title %> </h5>
   <br>
 <%= link_to "Export paper statistics as spreadsheet", paper_download_project_paper_questions_path(format: "xlsx"), :class => "btn btn-primary" %>
   <br>
