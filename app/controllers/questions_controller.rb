@@ -184,6 +184,7 @@ class QuestionsController < ApplicationController
     @project = Project.find(params[:project_id])
     @paper = Paper.find(params[:paper_id])
     @question = Question.new
+    # raise
   end
 
 
