@@ -4,22 +4,21 @@
   <div class="extended-and-content">
 
     <div class="row ">
-      <div class="col-sm-6 col-sm-offset-2">
-<h1>Questions - Extended & Content </h1>
+      <div class="col-sm-6 col-sm-offset-0">
+        <h1>Questions - Extended & Content </h1>
 
 
-<iframe src=<%= url_for(@paper.paper_pdf) %>
- width="700" height="780" style="border: none;"></iframe>
+        <iframe src=<%= url_for(@paper.paper_pdf) %>
+         width="700" height="780" style="border: none;"></iframe>
 
+       </div>
 
-</div>
-      <div class="col-sm-6 col-sm-offset-3">
+       <div class="col-sm-4 col-sm-offset-2 scrollable" >
 
-    <%= link_to "Open the paper", @paper.paper_pdf, target: :_blank, :class => "btn btn-warning" %>
-    <%= link_to "pdf_link", @paper.paper_pdf%>
 
 
         <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
+
         <h1>Extended</h1>
 
         <h3>Title and abstract</h3>
@@ -110,11 +109,13 @@
         <div class="form-actions">
           <%= f.button :submit, "Send your review", class:"btn btn-primary"%>
         </div>
+
         <% end %>
       </div>
     </div>
   </div>
 </div>
+
 
 
 
