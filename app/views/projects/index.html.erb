@@ -11,23 +11,36 @@
 
   <div class="row">
     <% @projects.each do |project| %>
-    <div class="col-xs-12 col-sm-4">
-      <%= link_to project_path(project) do %>
-      <div class="card">
-        <div class="card-description">
-         <div class="card-born-country">
-          <div class="card-born">
-            Title of the project
-            <p><%=project.title=%>,</p>
-          </div>
-          Summary of the project
-          <div class="card-country">
-            <p> <%= project.body=%></p>
-          </div>
-        </div>
-      </div>
+    <div class="col-sm-3" style="background-color":;>
 
-    </div>
+      <div class="card top-buffer">
+        <%= link_to project_path(project) do %>
+        <img class="card-img-top" src="/assets/folder.png" alt="Card image">
+        <div class="overlay img-responsive">
+            <div class="card-body text-info">
+             <h4 class="card-title"><strong><%=truncate(project.title, length:13)=%> </strong> </h4>
+          <!--
+<p class="card-text"><%= project.body=%></p> -->
+            </div>
+        </div>
+       </div>
+
+   
+
+         <!--  <div class="card-header text-white" style="background-color: #4B515D;">
+            <div class="text-center">
+            <p> <strong><%=project.title=%> </strong> </p>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="card-description">
+               <p> <strong>Description of the project:</strong></p>
+               <p> <%= project.body=%></p>
+             
+       
+         -->
+             
+         
     <% if  current_user.admin%>
 
     <%= link_to "Delete this project", project_path(project), method: :delete,

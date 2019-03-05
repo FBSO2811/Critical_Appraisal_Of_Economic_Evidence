@@ -1,15 +1,13 @@
 .card {
-  height: 250px;
+  height: 175px;
   // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
   background-size: cover !important;
   background-position: center;
   color: white;
+  opacity: 1;
   position: relative;
   font-style: normal;
-  background-color: #c0cee5;
-  border-radius: 2px;
-  border: 2px solid;
-  border-color: #b1bdd1;
+
   margin-bottom: 10px;
 }
 .card-user {
@@ -50,4 +48,13 @@
 .delete-item {
   margin-top: 150px;
   margin-left: 10px;
+}
+
+.top-buffer{
+  margin-top: 40px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }

@@ -1,8 +1,8 @@
 <div class="container">
-  <h1> Adding New Paper to the project: <%= @project.title %></h1>
+  <!--<h1> Adding paper to project: <%= @project.title %></h1>
 
-
-
+-->
+<h2> </h2>
   <div class="row ">
     <div class="col-sm-6 col-sm-offset-3">
 
@@ -10,8 +10,8 @@
 
 
       <div class="form-inputs">
-        <%= f.input :title, label: "Write the title of the paper you are adding" %>
-        <%= f.input :body, label: "Write a short summary of the paper you are adding", as: :text, input_html: {rows: 15, cols: 10} %>
+        <%= f.input :title, label: "Enter the title of the paper" %>
+        <%= f.input :body, label: "Enter a short description", as: :text, input_html: {rows: 15, cols: 10} %>
         <p style="color:red">Upload the document in PDF format only!</p>
         <%= f.file_field :paper_pdf, accept: 'application/pdf',  label: "Upload the paper as PDF" %>
 
