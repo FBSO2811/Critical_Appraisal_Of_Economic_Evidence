@@ -13,8 +13,8 @@ THIS HAS BEEN CREATED BY %= project.user.email %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :title, label: "Write the title of the project you are creating" %>
-        <%= f.input :body, label: "Write a short summary of the project you are adding", as: :text, input_html: {rows: 15, cols: 10} %>
+        <%= f.input :title, label: "Enter the title of your project" %>
+        <%= f.input :body, label: "Enter a short description of your project", as: :text, input_html: {rows: 15, cols: 10} %>
 
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 

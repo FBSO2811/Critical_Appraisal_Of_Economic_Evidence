@@ -1,13 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div class="container">
-  <%= link_to 'Go back to the project', project_path(@paper.project.id), :class => "btn btn-primary" %>
   <br>
-<% if  current_user.admin%>
-
-  <%= link_to "Delete this paper", project_paper_path(@paper.project.id, @paper), method: :delete,
-  data: { confirm: "Are you sure you want to delete this paper?" }, :class => "btn btn-danger" %>
-<% end %>
-  <h4>This paper is inside the project:
+  
+  <h4>This paper belongs to the project:
   <%= @paper.project.title %></h4>
 
 <!--   <h1>This paper is created by user:</h1>
@@ -16,29 +11,35 @@
 <!--   <h1>You are reading the paper: </h1>
  -->
   <p>
-    <strong>Title of the paper</strong>
     <br>
-    <%= @paper.title %>
+    <strong><%= @paper.title %></strong>
   </p>
 
   <p>
-    <strong>Summary of the Paper</strong>
     <br>
     <%= @paper.body %>
   </p>
 
-  <strong>The PDF of the Paper</strong>
   <br>
-    <%= link_to "Download the PDF", rails_blob_path(@paper.paper_pdf, disposition: :attachment), :class => "btn btn-success" %>
-    <%= link_to "Open the paper", @paper.paper_pdf, target: :_blank, :class => "btn btn-warning" %>
+  <!-- 
+  <%= link_to 'Go back to the project', project_path(@paper.project.id), :class => "btn btn-primary" %>
+   -->
+  <!-- <% if  current_user.admin%>
+
+  <%= link_to "Delete this paper", project_paper_path(@paper.project.id, @paper), method: :delete,
+  data: { confirm: "Are you sure you want to delete this paper?" }, :class => "btn btn-danger" %>
+  <% end %>
+ -->
+    <%= link_to "Download the PDF", rails_blob_path(@paper.paper_pdf, disposition: :attachment), :class => "btn btn-info" %>
+    <%= link_to "Open the paper", @paper.paper_pdf, target: :_blank, :class => "btn btn-warning" %> 
     <% if current_user.admin == false %>
 
-    <%= link_to "Review the paper", new_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-primary" %>
+    <%= link_to "Review the paper", new_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-success" %>
 <!--     <%= link_to "Modify you review", edit_project_paper_question_path(@paper.project.id, @paper.id), :class => "btn btn-primary" %>
  -->    <% end %>
 
     <% if current_user.admin %>
-    <%= link_to "Check paper statistics", replies_project_paper_questions_path(@paper.project.id, @paper.id), :class => "btn btn-danger" %>
+    <%= link_to "Paper stats ", replies_project_paper_questions_path(@paper.project.id, @paper.id), :class => "btn btn-success" %>
     <% end %>
 
   <br>

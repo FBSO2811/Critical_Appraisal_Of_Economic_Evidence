@@ -3,15 +3,16 @@
 
   <div class="row ">
     <div class="col-sm-6 col-sm-offset-3">
-<h1>New Project</h1>
-
+<!--<h1>New Project</h1>
+-->
+<h2></h2>
 <%= simple_form_for(@project) do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
       <div class="form-inputs">
-        <%= f.input :title, label: "Write the title of the project you are creating" %>
-        <%= f.input :body, label: "Write a short summary of the project you are adding", as: :text, input_html: {rows: 15, cols: 10} %>
+        <%= f.input :title, label: "Enter the title of the project" %>
+        <%= f.input :body, label: "Enter a short description", as: :text, input_html: {rows: 15, cols: 10} %>
 
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 
