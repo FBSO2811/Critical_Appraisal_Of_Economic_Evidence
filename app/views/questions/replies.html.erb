@@ -10,11 +10,14 @@
   <h5>  Title of the paper: <%= @paper.title %> </h5>
   <br>
 <%= link_to "Export paper statistics as spreadsheet", paper_download_project_paper_questions_path(format: "xlsx"), :class => "btn btn-primary" %>
+<h6></h6>
   <br>
 
-
-  <h1>Income level</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Income level</th>
+    </tr>
     <tr>
       <th>Low</th>
       <th>Middle</th>
@@ -34,10 +37,13 @@
       <td> / </td>
     </tr>
   </table>
+</div>
 
-
-  <h1>Type of economic evaluation</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of economic evaluation</th>
+    </tr>
     <tr>
       <th>CUA</th>
       <th>CEA</th>
@@ -63,10 +69,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-
-  <h1>Study Design</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Study Design</th>
+    </tr>
     <tr>
       <th>RCT</th>
       <th>Quasi-experimental</th>
@@ -92,9 +101,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Type of modeling, if modeling design</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of modeling, if modeling design</th>
+    </tr>
     <tr>
       <th>Decison Tree</th>
       <th>Markov model</th>
@@ -121,9 +134,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Perspective (as stated by authors)</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Perspective (as stated by authors)</th>
+    </tr>
     <tr>
       <th>Social</th>
       <th>Provider/Health care system</th>
@@ -152,9 +169,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Perspective (evaluated by reviewer)</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Perspective (evaluated by reviewer)</th>
+    </tr>
     <tr>
       <th>Social</th>
       <th>Provider/Health care system</th>
@@ -184,9 +205,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Type of sensitivity analysis</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of sensitivity analysis</th>
+    </tr>
     <tr>
       <th>One way/Univariate</th>
       <th>Multy-way/Multivariate</th>
@@ -194,7 +219,6 @@
       <th>Not performaed/specified</th>
       <th>CMA</th>
       <th>Total</th>
-
     </tr>
     <tr>
       <td><%= @replies_paper_sensitibity_one %></td>
@@ -213,9 +237,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Time horizon</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Time horizon</th>
+    </tr>
     <tr>
       <th><= 1</th>
       <th>1-10 years</th>
@@ -238,9 +266,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Outcome Measure</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Outcome Measure</th>
+    </tr>
     <tr>
       <th>QALY/DALY</th>
       <th>Natural units</th>
@@ -264,9 +296,14 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-  <h1>Costs included</h1>
+<div class="table">
+
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Costs included</th>
+    </tr>
     <tr>
       <th>Direct medical costs</th>
       <th>Direct non-medical costs</th>
@@ -289,10 +326,13 @@
       <td>/</td>
     </tr>
   </table>
+</div>
 
-
-  <h1>Type and source of data used</h1>
+<div class="table">
   <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type and source of data used</th>
+    </tr>
     <tr>
       <th>Primary</th>
       <th>Secondary</th>
@@ -315,7 +355,7 @@
       <td>/</td>
     </tr>
   </table>
-
+</div>
 
 </div>
 
