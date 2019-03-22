@@ -14,13 +14,11 @@
 
     <%= link_to 'Add new paper', new_project_paper_path(@project.id), :class => "btn btn-warning" %>
 
-    <% if  current_user.admin%>
 
     <%= link_to 'Project stats ', replies_project_project_path(@project.id), :class => "btn btn-success" %>
 <!--
       <%= link_to "Delete this project", project_path(@project), :class => "btn btn-danger",  method: :delete,
       data: { confirm: "Are you sure you want to delete this project?" } %> -->
-      <% end %>
 
     </div>
 <!--     <div class="row">
@@ -62,10 +60,10 @@
 
         <div class="card top-buffer">
           <%= link_to project_paper_path(paper.project.id, paper.id) do %>
-          <img class="card-img-top" src="/assets/file.png" alt="Card image">
           <div class="overlay img-responsive">
             <div class="card-body text-info">
              <div class="text-center">
+          <img class="card-img-top" src="/assets/file.png" alt="Card image">
 
                <h4 class="card-title"><strong> <%= truncate(paper.title, length:10)=%> </strong> </h4>
              </div>
