@@ -12,6 +12,12 @@ Rails.application.routes.draw do
           get "paper_download"
         end
       end
+      resources :contentquestions do
+        collection do
+          get 'replies'
+          get "paper_download"
+        end
+      end
     end
   end
 
