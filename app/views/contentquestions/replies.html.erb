@@ -1,0 +1,363 @@
+
+<head>
+  <%= javascript_include_tag "https://www.gstatic.com/charts/loader.js" %>
+  <%= javascript_include_tag 'application' %>
+</head>
+
+<div class="container">
+
+  <h3>Statistics </h3>
+  <h5>  Title of the paper: <%= @paper.title %> </h5>
+  <br>
+<%= link_to "Export paper statistics as spreadsheet", paper_download_project_paper_contentquestions_path(format: "xlsx"), :class => "btn btn-primary" %>
+<h6></h6>
+  <br>
+
+<div class="table">
+  <table style="width:100% background-color:#ffffff">
+    <tr>
+      <th style="background-color: #c6e2ff">Income level</th>
+    </tr>
+    <tr>
+      <th>Low</th>
+      <th>Middle</th>
+      <th>High</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_income_low %></td>
+      <td><%= @replies_paper_income_middle %></td>
+      <td><%= @replies_paper_income_high %></td>
+      <td><%= @replies_paper_income_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_income_low_p%> %</td>
+      <td><%= @replies_paper_income_middle_p%> %</td>
+      <td><%= @replies_paper_income_high_p %> %</td>
+      <td> / </td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of economic evaluation</th>
+    </tr>
+    <tr>
+      <th>CUA</th>
+      <th>CEA</th>
+      <th>CBA</th>
+      <th>CCA</th>
+      <th>CMA</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_type_cua %></td>
+      <td><%= @replies_paper_type_cea %></td>
+      <td><%= @replies_paper_type_cba %></td>
+      <td><%= @replies_paper_type_cca %></td>
+      <td><%= @replies_paper_type_cma %></td>
+      <td><%= @replies_paper_type_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_type_cua_p %>%</td>
+      <td><%= @replies_paper_type_cea_p %>%</td>
+      <td><%= @replies_paper_type_cba_p %>%</td>
+      <td><%= @replies_paper_type_cca_p %>%</td>
+      <td><%= @replies_paper_type_cma_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Study Design</th>
+    </tr>
+    <tr>
+      <th>RCT</th>
+      <th>Quasi-experimental</th>
+      <th>Modelling</th>
+      <th>Observational</th>
+      <th>Mixed RCT and Modelling</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_study_rct %></td>
+      <td><%= @replies_paper_study_quasi %></td>
+      <td><%= @replies_paper_study_modelling %></td>
+      <td><%= @replies_paper_study_observational %></td>
+      <td><%= @replies_paper_study_mixed %></td>
+      <td><%= @replies_paper_study_total%></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_study_rct_p %>%</td>
+      <td><%= @replies_paper_study_quasi_p %>%</td>
+      <td><%= @replies_paper_study_modelling_p %>%</td>
+      <td><%= @replies_paper_study_observational_p %>%</td>
+      <td><%= @replies_paper_study_mixed_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of modeling, if modeling design</th>
+    </tr>
+    <tr>
+      <th>Decison Tree</th>
+      <th>Markov model</th>
+      <th>Patient simulation</th>
+      <th>Dynamic models</th>
+      <th>Other</th>
+      <th>Total</th>
+
+    </tr>
+    <tr>
+      <td><%= @replies_paper_modelling_tree %></td>
+      <td><%= @replies_paper_modelling_markov %></td>
+      <td><%= @replies_paper_modelling_patient %></td>
+      <td><%= @replies_paper_modelling_dynamic %></td>
+      <td><%= @replies_paper_modelling_other %></td>
+      <td><%= @replies_paper_modelling_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_modelling_tree_p %>%</td>
+      <td><%= @replies_paper_modelling_markov_p %>%</td>
+      <td><%= @replies_paper_modelling_patient_p %>%</td>
+      <td><%= @replies_paper_modelling_dynamic_p %>%</td>
+      <td><%= @replies_paper_modelling_other_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Perspective (as stated by authors)</th>
+    </tr>
+    <tr>
+      <th>Social</th>
+      <th>Provider/Health care system</th>
+      <th>Program</th>
+      <th>Patient</th>
+      <th>Payer/Third party</th>
+      <th>Mixed</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_perspective_a_social %></td>
+      <td><%= @replies_paper_perspective_a_provider %></td>
+      <td><%= @replies_paper_perspective_a_program %></td>
+      <td><%= @replies_paper_perspective_a_patient %></td>
+      <td><%= @replies_paper_perspective_a_payer %></td>
+      <td><%= @replies_paper_perspective_a_mixed %></td>
+      <td><%= @replies_paper_perspective_a_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_perspective_a_social_p %>%</td>
+      <td><%= @replies_paper_perspective_a_provider_p %>%</td>
+      <td><%= @replies_paper_perspective_a_program_p %>%</td>
+      <td><%= @replies_paper_perspective_a_patient_p %>%</td>
+      <td><%= @replies_paper_perspective_a_payer_p %>%</td>
+      <td><%= @replies_paper_perspective_a_mixed_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Perspective (evaluated by reviewer)</th>
+    </tr>
+    <tr>
+      <th>Social</th>
+      <th>Provider/Health care system</th>
+      <th>Program</th>
+      <th>Patient</th>
+      <th>Payer/Third party</th>
+      <th>Mixed</th>
+      <th>Total</th>
+
+    </tr>
+    <tr>
+      <td><%= @replies_paper_perspective_r_social %></td>
+      <td><%= @replies_paper_perspective_r_provider %></td>
+      <td><%= @replies_paper_perspective_r_program %></td>
+      <td><%= @replies_paper_perspective_r_patient %></td>
+      <td><%= @replies_paper_perspective_r_payer %></td>
+      <td><%= @replies_paper_perspective_r_mixed %></td>
+      <td><%= @replies_paper_perspective_r_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_perspective_r_social_p %>%</td>
+      <td><%= @replies_paper_perspective_r_provider_p %>%</td>
+      <td><%= @replies_paper_perspective_r_program_p %>%</td>
+      <td><%= @replies_paper_perspective_r_patient_p %>%</td>
+      <td><%= @replies_paper_perspective_r_payer_p %>%</td>
+      <td><%= @replies_paper_perspective_r_mixed_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type of sensitivity analysis</th>
+    </tr>
+    <tr>
+      <th>One way/Univariate</th>
+      <th>Multy-way/Multivariate</th>
+      <th>Probabilistic analysis</th>
+      <th>Not performaed/specified</th>
+      <th>CMA</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_sensitibity_one %></td>
+      <td><%= @replies_paper_sensitibity_multi %></td>
+      <td><%= @replies_paper_sensitibity_probabilistic %></td>
+      <td><%= @replies_paper_sensitibity_not %></td>
+      <td><%= @replies_paper_sensitibity_cma %></td>
+      <td><%= @replies_paper_sensitibity_total%></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_sensitibity_one_p %>%</td>
+      <td><%= @replies_paper_sensitibity_multi_p %>%</td>
+      <td><%= @replies_paper_sensitibity_probabilistic_p %>%</td>
+      <td><%= @replies_paper_sensitibity_not_p %>%</td>
+      <td><%= @replies_paper_sensitibity_cma_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Time horizon</th>
+    </tr>
+    <tr>
+      <th><= 1</th>
+      <th>1-10 years</th>
+      <th>Over 10 years</th>
+      <th>Not clearly stated</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_date_one %></td>
+      <td><%= @replies_paper_date_ten %></td>
+      <td><%= @replies_paper_date_above %></td>
+      <td><%= @replies_paper_date_not %></td>
+      <td><%= @replies_paper_date_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_date_one_p %>%</td>
+      <td><%= @replies_paper_date_ten_p %>%</td>
+      <td><%= @replies_paper_date_above_p %>%</td>
+      <td><%= @replies_paper_date_not_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Outcome Measure</th>
+    </tr>
+    <tr>
+      <th>QALY/DALY</th>
+      <th>Natural units</th>
+      <th>Process outcome</th>
+      <th>Monetary</th>
+      <th>Total</th>
+
+    </tr>
+    <tr>
+      <td><%= @replies_paper_outcome_qaly %></td>
+      <td><%= @replies_paper_outcome_natural %></td>
+      <td><%= @replies_paper_outcome_process %></td>
+      <td><%= @replies_paper_outcome_monetary %></td>
+      <td><%= @replies_paper_outcome_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_outcome_qaly_p %>%</td>
+      <td><%= @replies_paper_outcome_natural_p %>%</td>
+      <td><%= @replies_paper_outcome_process_p %>%</td>
+      <td><%= @replies_paper_outcome_monetary_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Costs included</th>
+    </tr>
+    <tr>
+      <th>Direct medical costs</th>
+      <th>Direct non-medical costs</th>
+      <th>Indirect costs</th>
+      <th>Intangible costs</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_cost_medical %></td>
+      <td><%= @replies_paper_cost_non %></td>
+      <td><%= @replies_paper_cost_indirect %></td>
+      <td><%= @replies_paper_cost_intangible %></td>
+      <td><%= @replies_paper_cost_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_cost_medical_p %>%</td>
+      <td><%= @replies_paper_cost_non_p %>%</td>
+      <td><%= @replies_paper_cost_indirect_p %>%</td>
+      <td><%= @replies_paper_cost_intangible_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+<div class="table">
+  <table style="width:100%">
+    <tr>
+      <th style="background-color: #c6e2ff">Type and source of data used</th>
+    </tr>
+    <tr>
+      <th>Primary</th>
+      <th>Secondary</th>
+      <th>Mixed</th>
+      <th>Monetary</th>
+      <th>Total</th>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_data_primary %></td>
+      <td><%= @replies_paper_data_secondary %></td>
+      <td><%= @replies_paper_data_mixed %></td>
+      <td><%= @replies_paper_data_monetary %></td>
+      <td><%= @replies_paper_data_total %></td>
+    </tr>
+    <tr>
+      <td><%= @replies_paper_data_primary_p %>%</td>
+      <td><%= @replies_paper_data_secondary_p %>%</td>
+      <td><%= @replies_paper_data_mixed_p %>%</td>
+      <td><%= @replies_paper_data_monetary_p %>%</td>
+      <td>/</td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+
+

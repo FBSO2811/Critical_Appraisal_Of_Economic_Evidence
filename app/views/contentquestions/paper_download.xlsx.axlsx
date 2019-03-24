@@ -1,0 +1,37 @@
+wb = xlsx_package.workbook
+
+wb.add_worksheet(name: "Paper excel") do |sheet|
+  sheet.add_row %w(
+
+  A-Income-level
+  B-Type-of-economic-evaluation
+  C-Study-Design
+  D-Type-of-modeling,-if-modeling-design-
+  E-Perspective-(as-stated-by-authors)
+  F-Perspective-(evaluated-by-reviewer)
+  G-Type-of-sensitivity-analysis
+  H-Time-horizon
+  I-Outcome-Measure
+  L-Costs-included
+  M-Type-and-source-of-data used
+  )
+
+  @replies_paper.each do |reply|
+    sheet.add_row [
+    reply.question_content_income,
+    reply.question_content_type,
+    reply.question_content_study,
+    reply.question_content_modelling,
+    reply.question_content_perspective_a,
+    reply.question_content_perspective_r,
+    reply.question_content_sensitivity,
+    reply.question_content_data,
+    reply.question_content_outcome,
+    reply.question_content_cost,
+    reply.question_content_data,
+    ]
+  end
+end
+
+
+

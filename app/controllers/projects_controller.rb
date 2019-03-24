@@ -208,6 +208,7 @@ class ProjectsController < ApplicationController
     # @project.save
     # redirect_to projects_path
     if @project.save
+      flash[:alert] = "Congrats, you created a project"
       redirect_to projects_path
     else
       flash[:alert] = "You have to fill the title and body"

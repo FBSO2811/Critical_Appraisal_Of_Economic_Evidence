@@ -201,13 +201,13 @@ class QuestionsController < ApplicationController
     @question.project = Project.find(params[:project_id])
     @question.paper = Paper.find(params[:paper_id])
     if @question.save
+      flash[:alert] = "Congrats, you answered the extended questions"
+
       redirect_to projects_path
     else
       flash[:alert] = "You have to answer all questions"
       render :new
     end
-
-
   end
 
   def update

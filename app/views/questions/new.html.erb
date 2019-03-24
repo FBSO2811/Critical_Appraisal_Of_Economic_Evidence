@@ -1,4 +1,4 @@
-<h1>Questionnaire </h1>
+<h1>Questionnaire Extended</h1>
 
 <div class="container">
   <div class="extended-and-content">
@@ -11,12 +11,13 @@
        </div>
 
        <div class="col-sm-4 col-sm-offset-2 scrollable" >
-
-
+    <p>Do you want to review the CONTENT? Click here:</p>
+    <%= link_to "Review the paper - Content", new_project_paper_contentquestion_path(@paper.project.id, @paper.id), :class => "btn btn-success" %>
 
         <%= simple_form_for [@user, @project, @paper, @question], url: project_paper_questions_path do |f| %>
 
         <h1>Extended</h1>
+
 
         <h3>Title and abstract</h3>
         <%= f.input :question_1, :collection =>[["N/A", -1], ["No", 0], ["Partially", 0.5], ["Yes", 1]], label: "1. Identify the study as an economic evaluation" %>
@@ -76,35 +77,11 @@
         <%= f.input :question_28, :collection =>[["N/A", -1], ["No", 0], ["Partially", 0.5], ["Yes", 1]], label: "24. Describe any potential for conflict of interest among study contributors in accordance with journal policy.
         " %>
 
-
-        <h1>Content</h1>
-        <%= f.input :question_content_year, label: "1. Year"%>
-
-        <%= f.input :question_content_nation, label: "2. Country"%>
-
-        <%= f.input :question_content_income, :collection =>[["Low income", -1], ["Middle income", 0], ["High income", 1]], label: "3. Income level" %>
-        <%= f.input :question_content_type, :collection =>[["CUA", 0], ["CEA", 1], ["CBA", 2], ["CCA", 3], ["CMA", 4]], label: "4. Type of economic evaluation" %>
-        <%= f.input :question_content_study, :collection =>[["RCT", 0], ["Quasi-experimental", 1], ["Modelling", 2], ["Observational", 3], ["Mixed RCT and Modelling", 4]], label: "5. Study Design " %>
-        <%= f.input :question_content_modelling, :collection =>[["Decison Tree", 0], ["Markov model", 1], ["Patient level simulation/microsimulation", 2], ["Dynamic models", 3], ["Other", 4]], label: "6. Type of modeling, if modeling design " %>
-        <%= f.input :question_content_perspective_a, :collection =>[["Social", 0], ["Provider/Health care system", 1], ["Program", 2], ["Patient", 3], ["Payer/Third party", 4], ["Mixed", 5]], label: "7. Perspective (as stated by authors)" %>
-        <%= f.input :question_content_perspective_r, :collection =>[["Social", 0], ["Provider/Health care system", 1], ["Program", 2], ["Patient", 3], ["Payer/Third party", 4], ["Mixed", 5]], label: "8. Perspective (evaluated by reviewer)" %>
-        <%= f.input :question_content_sensitivity, :collection =>[["One way/Univariate", 0], ["Multy-way/Multivariate", 1], ["Probabilistic analysis", 2], ["Not performaed/specified", 3], ["CMA", 4]], label: "9. Type of sensitivity analysis" %>
-        <%= f.input :question_content_data, :collection =>[["<= 1", 0], ["1-10 years", 1], ["Over 10 years", 2], ["Not clearly stated", 3]], label: "10. Time horizon" %>
-        <%= f.input :question_content_outcome, :collection =>[["QALY/DALY", 0], ["Natural units", 1], ["Process outcomes", 2], ["Monetary", 3]], label: "11. Outcome Measure" %>
-        <%= f.input :question_content_cost, :collection =>[["Direct medical costs", 0], ["Direct non-medical costs", 1], ["Indirect costs", 2], ["Intangible costs", 3]], label: "12. Costs included" %>
-        <%= f.input :question_content_intervention, label: "13. Decription of Intervention/Comparison" %>
-        <%= f.input :question_content_data, :collection =>[["Primary", 0], ["Secondary", 1], ["Mixed", 2], ["Monetary", 3]], label: "14. Type and source of data used" %>
-        <%= f.input :question_content_sample, label: "15. Sample Size" %>
-
-        <%= f.input :question_content_description, label: "16. Description of analysis outcomes" %>
-
-
-
         <%= f.association :user, label: "Which user is creating it?", :as => :hidden, :input_html => { :value => current_user.id }  %>
 
 
         <div class="form-actions">
-          <%= f.button :submit, "Send your review", class:"btn btn-primary"%>
+          <%= f.button :submit, "Send your extended review", class:"btn btn-primary"%>
         </div>
 
         <% end %>
